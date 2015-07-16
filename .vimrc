@@ -48,7 +48,7 @@ Bundle 'bling/vim-bufferline'
 Bundle 'tpope/vim-fugitive'
 ""on vim.org
 Bundle 'L9'
-Bundle 'xoria256.vim'
+Bundle 'junegunn/seoul256.vim'
 
 " initialize for common setup
 let mapleader = "\<tab>"
@@ -56,7 +56,8 @@ filetype plugin on
 syntax on
 set t_Co=256
 set background=dark
-colorscheme xoria256
+let g:seoul256_background = 233
+colorscheme seoul256
 
 set backspace=indent,eol,start
 set hlsearch
@@ -67,8 +68,9 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set autoindent
-set fileencodings=utf8
+set fileencodings=utf-8,big5,default
 set encoding=utf8
+set ff=unix
 set pastetoggle=<F2>
 
 " syntax highlighting borrow from http://drupal.org/node/29325
@@ -136,3 +138,10 @@ let g:airline_enable_hunks = 1
 if match($TERMCAP, 'Co#256:') == 0 || match($TERMCAP, ':Co#256:') > 0           
   set t_Co=256                                                                
 endif 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Directory path
+"Set working directory to the current file
+"http://vim.wikia.com/wiki/VimTip64
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd BufEnter * lcd %:p:h
