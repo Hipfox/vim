@@ -62,18 +62,20 @@ Bundle 'majutsushi/tagbar'
 
 ""colorscheme
 " Bundle 'chriskempson/base16-vim'
-Bundle 'nanotech/jellybeans.vim'
+" Bundle 'nanotech/jellybeans.vim'
+Bundle 'junegunn/seoul256.vim'
 
 ""on https://github.com/vim-scripts/
 Bundle 'L9'
 Bundle 'jsbeautify'
 
 " initialize for common setup
-filetype plugin on
-set background=dark
-set t_Co=256
-colorscheme jellybeans
 syntax on
+filetype plugin on
+set t_Co=256
+set background=dark
+colorscheme seoul256
+let g:seoul256_background = 233
 
 let mapleader = ','
 set backspace=indent,eol,start
@@ -85,8 +87,9 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set autoindent
-set fileencodings=utf8
+set fileencodings=utf-8,big5,default
 set encoding=utf8
+set ff=unix
 set pastetoggle=<F2>
 set noerrorbells
 set novisualbell
@@ -153,3 +156,9 @@ nnoremap <C-e> :Errors<CR>
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces
 " autocmd BufWritePre * :%s/\s\+$//e
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Directory path
+"Set working directory to the current file
+"http://vim.wikia.com/wiki/VimTip64
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd BufEnter * lcd %:p:h
