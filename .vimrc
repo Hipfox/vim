@@ -145,3 +145,11 @@ endif
 "http://vim.wikia.com/wiki/VimTip64
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufEnter * lcd %:p:h
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Omni menu colors
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+hi Pmenu ctermbg=white
+hi PmenuSel ctermbg=yellow ctermfg=black
+
+hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
