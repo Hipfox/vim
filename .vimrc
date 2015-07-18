@@ -54,7 +54,7 @@ Bundle 'pangloss/vim-javascript'
 "Bundle 'tsaleh/vim-matchit'
 Bundle 'tpope/vim-surround'
 "Bundle 'uguu-org/vim-matrix-screensaver'
-Bundle 'gkz/vim-ls'
+"Bundle 'gkz/vim-ls'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'mhinz/vim-signify'
 Bundle 'majutsushi/tagbar'
@@ -62,8 +62,8 @@ Bundle 'majutsushi/tagbar'
 
 ""colorscheme
 " Bundle 'chriskempson/base16-vim'
-" Bundle 'nanotech/jellybeans.vim'
-Bundle 'junegunn/seoul256.vim'
+Bundle 'nanotech/jellybeans.vim'
+" Bundle 'junegunn/seoul256.vim'
 
 ""on https://github.com/vim-scripts/
 Bundle 'L9'
@@ -74,8 +74,8 @@ syntax on
 filetype plugin on
 set t_Co=256
 set background=dark
-colorscheme seoul256
-let g:seoul256_background = 233
+colorscheme jellybeans
+"let g:seoul256_background = 233
 
 let mapleader = ','
 set backspace=indent,eol,start
@@ -133,14 +133,21 @@ let g:ctrlp_switch_buffer = 'Et'
 nnoremap <F3> :CtrlPBuffer<CR>
 nnoremap <F4> :CtrlP<CR>
 
+" tagbar
+nmap <F8> :TagbarToggle<CR>
+
 " airline
 set laststatus=2
 let g:airline_detect_paste=1
-let g:airline_enable_branch=1
-let g:airline_enable_hunks=1
+let g:airline#extensions#branch#enabled=1
+let g:airline#extensions#hunks#enabled=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts=1
-let g:airline_theme='light'
+let g:airline_theme='jellybeans'
+"let g:airline_left_sep = '»'
+"let g:airline_right_sep = '«'
+"let g:airline_paste_symbol = '∥'
+"let g:airline_whitespace_symbol = 'Ξ'
 
 " Syntastic
 let g:syntastic_php_checkers=['php']
@@ -161,12 +168,12 @@ nnoremap <C-e> :Errors<CR>
 "Set working directory to the current file
 "http://vim.wikia.com/wiki/VimTip64
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd BufEnter * lcd %:p:h
+"autocmd BufEnter * lcd %:p:h
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Omni menu colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-hi Pmenu ctermbg=white
-hi PmenuSel ctermbg=yellow ctermfg=black
+"hi Pmenu ctermbg=white
+"hi PmenuSel ctermbg=yellow ctermfg=black
 
-hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
+"hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
