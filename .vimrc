@@ -166,9 +166,9 @@ nnoremap <C-e> :Errors<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Directory path
 "Set working directory to the current file
-"http://vim.wikia.com/wiki/VimTip64
+"http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"autocmd BufEnter * lcd %:p:h
+autocmd BufEnter * silent! lcd %:p:h
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Omni menu colors
