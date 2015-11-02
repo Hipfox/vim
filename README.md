@@ -24,16 +24,6 @@ open editor(bundle will install vbundle automatically)
 vim 
 ```
 
-After vbundle downloaded, exit vim then enter again
-
-```
-vim
-```
-Then start to install another bundle
-```
-:PluginInstall!
-```
-
 Append this line at the end of .bashrc
 ```
 export TERM=xterm-256color

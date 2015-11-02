@@ -9,65 +9,61 @@ filetype off                   " required!
 
 " Setting up Vundle - the vim plugin bundler
 let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
 if !filereadable(vundle_readme)
   echo "Installing Vundle.."
   echo ""
   silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+  silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
   let iCanHazVundle=0
 endif
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
-"Add your bundles here
-"...All your other bundles...
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Original repos on github
+Plugin 'othree/html5.vim'
+Plugin 'othree/html5-syntax.vim'
+Plugin 'othree/eregex.vim'
+Plugin 'othree/vim-autocomplpop'
+Plugin 'jimyhuang/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/syntastic'
+Plugin 'pangloss/vim-javascript'
+"Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'tsaleh/vim-matchit'
+Plugin 'tpope/vim-surround'
+"Plugin 'uguu-org/vim-matrix-screensaver'
+"Plugin 'gkz/vim-ls'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'mhinz/vim-signify'
+Plugin 'majutsushi/tagbar'
+"Plugin 'ervandew/supertab'
+
+"colorscheme
+"Plugin 'chriskempson/base16-vim'
+Plugin 'nanotech/jellybeans.vim'
+"Plugin 'junegunn/seoul256.vim'
+
+""on https://github.com/vim-scripts/
+Plugin 'L9'
+Plugin 'jsbeautify'
+
+call vundle#end()
+
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages"
   echo ""
-  :BundleInstall
+  :PluginInstall!
 endif
-" Setting up Vundle - the vim plugin bundler end
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
-
-""original repos on github
-Bundle 'othree/html5.vim'
-Bundle 'othree/html5-syntax.vim'
-Bundle 'othree/eregex.vim'
-Bundle 'othree/vim-autocomplpop'
-Bundle 'jimyhuang/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
-Bundle 'kien/ctrlp.vim'
-Bundle 'bling/vim-airline'
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/syntastic'
-Bundle 'pangloss/vim-javascript'
-"Bundle 'nathanaelkane/vim-indent-guides'
-"Bundle 'tsaleh/vim-matchit'
-Bundle 'tpope/vim-surround'
-"Bundle 'uguu-org/vim-matrix-screensaver'
-"Bundle 'gkz/vim-ls'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'mhinz/vim-signify'
-Bundle 'majutsushi/tagbar'
-" Bundle 'ervandew/supertab'
-
-""colorscheme
-" Bundle 'chriskempson/base16-vim'
-Bundle 'nanotech/jellybeans.vim'
-" Bundle 'junegunn/seoul256.vim'
-
-""on https://github.com/vim-scripts/
-Bundle 'L9'
-Bundle 'jsbeautify'
 
 " initialize for common setup
 syntax on
