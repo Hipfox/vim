@@ -48,12 +48,15 @@ Plugin 'mhinz/vim-signify'
 Plugin 'majutsushi/tagbar'
 "Plugin 'ervandew/supertab'
 
-"colorscheme
+" Vim 7.2+
+"Plugin 'nathanaelkane/vim-indent-guides'
+
+" Colorscheme
 "Plugin 'chriskempson/base16-vim'
 Plugin 'nanotech/jellybeans.vim'
 "Plugin 'junegunn/seoul256.vim'
 
-""on https://github.com/vim-scripts/
+" On https://github.com/vim-scripts/
 Plugin 'L9'
 Plugin 'jsbeautify'
 
@@ -65,39 +68,44 @@ if iCanHazVundle == 0
   :PluginInstall!
 endif
 
-" initialize for common setup
+" Initialize for common setup
 syntax on
 filetype plugin on
+
 set t_Co=256
 set background=dark
 colorscheme jellybeans
 
 let mapleader = ','
 let g:mapleader = ","
+
 set backspace=indent,eol,start
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
 set ruler
+
 set expandtab
 set tabstop=2
 set shiftwidth=2
 set autoindent
+
 set fileencodings=utf-8,big5,default
 set encoding=utf8
-set ff=unix
+set fileformat=unix
+set ambiwidth=double
+
 set pastetoggle=<F2>
 set noerrorbells
 set novisualbell
-set ambiwidth=double
 set wildmenu
 set wildmode=list:longest,full
 set keywordprg=":help"
 set ttimeout
 set ttimeoutlen=50
 
-" syntax highlighting borrow from http://drupal.org/node/29325
+" Syntax highlighting borrow from http://drupal.org/node/29325
 if has("autocmd")
   augroup module
     autocmd BufRead,BufNewFile *.module set filetype=php
@@ -112,31 +120,30 @@ if has("autocmd")
   autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 endif
 
-" tab key
+" Tab key
 nnoremap <C-t> :tabnew<CR>
 nnoremap <leader>[ :tabprevious<CR>
 nnoremap <leader>] :tabnext<CR>
 nnoremap <leader>t :tabnext<CR>
 nnoremap <leader><tab> :tabnext<CR>
-inoremap <leader><tab> :tabnext<CR>
 
-" omnifunc
+" Omnifunc
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving insert mode
 "inoremap <leader><tab> <C-x><C-o>
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-" ctrlp
+" Ctrlp
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_switch_buffer = 'Et'
 nnoremap <F3> :CtrlPBuffer<CR>
 nnoremap <F4> :CtrlP<CR>
 
-" tagbar
+" Tagbar
 nmap <F8> :TagbarToggle<CR>
 
-" airline
+" Airline
 set laststatus=2
 let g:airline_detect_paste=1
 let g:airline#extensions#branch#enabled=1
@@ -146,8 +153,6 @@ let g:airline_powerline_fonts=0
 let g:airline_theme='jellybeans'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-"let g:airline_paste_symbol = '∥'
-"let g:airline_whitespace_symbol = 'Ξ'
 
 " Syntastic
 let g:syntastic_php_checkers=['php']
@@ -163,9 +168,9 @@ nnoremap <leader>er :Errors<CR>
 nnoremap <leader>x :%s/\s\+$//e<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Directory path
-"Set working directory to the current file
-"http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
+" Directory path
+" Set working directory to the current file
+" http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufEnter * silent! lcd %:p:h
 
