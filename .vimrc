@@ -198,4 +198,4 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-q> <C-w>q
 
 " Others
-set shell=/usr/bin/bash
+set shell=bash
