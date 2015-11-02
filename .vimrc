@@ -159,9 +159,8 @@ nnoremap <leader>er :Errors<CR>
 " fix indent
 " nnoremap <C-i> gg=G''
 
-" remove unecessery whitespace when saving
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces
-" autocmd BufWritePre * :%s/\s\+$//e
+nnoremap <leader>x :%s/\s\+$//e<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Directory path
