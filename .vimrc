@@ -75,10 +75,11 @@ filetype plugin on
 set t_Co=256
 set background=dark
 colorscheme jellybeans
-"let g:seoul256_background = 233
 
 let mapleader = ','
+let g:mapleader = ","
 set backspace=indent,eol,start
+set incsearch
 set hlsearch
 set ignorecase
 set smartcase
@@ -94,8 +95,11 @@ set pastetoggle=<F2>
 set noerrorbells
 set novisualbell
 set ambiwidth=double
-set wildmode=longest,list,full
 set wildmenu
+set wildmode=list:longest,full
+set keywordprg=":help"
+set ttimeout
+set ttimeoutlen=50
 
 " syntax highlighting borrow from http://drupal.org/node/29325
 if has("autocmd")
@@ -123,7 +127,7 @@ inoremap <leader><tab> :tabnext<CR>
 " omnifunc
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving insert mode
-inoremap <leader><tab> <C-x><C-o>
+"inoremap <leader><tab> <C-x><C-o>
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
@@ -153,8 +157,8 @@ let g:airline_theme='jellybeans'
 let g:syntastic_php_checkers=['php']
 let g:syntastic_php_phpcs_args='--report=csv --standard=Drupal --extensions=php,module,inc,install,test,profile,theme'
 let g:syntastic_auto_jump=1
-nnoremap <C-l> :SyntasticCheck<CR>
-nnoremap <C-e> :Errors<CR>
+nnoremap <leader>ck :SyntasticCheck<CR>
+nnoremap <leader>er :Errors<CR>
 
 " fix indent
 " nnoremap <C-i> gg=G''
@@ -170,10 +174,28 @@ nnoremap <C-e> :Errors<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufEnter * silent! lcd %:p:h
 
+" http://vimcasts.org/episodes/the-edit-command/
+cnoremap %% <C-R>=fnameescape(expand('%:p:h')).'/'<cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Omni menu colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "hi Pmenu ctermbg=white
 "hi PmenuSel ctermbg=yellow ctermfg=black
-
 "hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
+
+" Multiple windows op
+nnoremap <leader>v <C-w>v<C-w>l
+nnoremap <leader>s <C-w>s
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-q> <C-w>q
+
+" Others
+set shell=/usr/bin/bash
