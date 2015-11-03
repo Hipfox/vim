@@ -152,6 +152,15 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
 " Syntastic
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 let g:syntastic_php_checkers=['php']
 let g:syntastic_php_phpcs_args='--report=csv --standard=Drupal --extensions=php,module,inc,install,test,profile,theme'
 let g:syntastic_auto_jump=1
@@ -188,6 +197,7 @@ map <leader>et :tabe %%
 " Multiple windows op
 nnoremap <leader>v <C-w>v<C-w>l
 nnoremap <leader>s <C-w>s
+nnoremap <leader>c <C-w>c
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
