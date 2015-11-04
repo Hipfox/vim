@@ -102,6 +102,8 @@ set wildmode=list:longest,full
 set keywordprg=":help"
 set ttimeout
 set ttimeoutlen=50
+" save local marks a-z for up to 100 files ('100), save global marks A-Z upon exit (f1)
+set viminfo='100,f1
 
 " Syntax highlighting borrow from http://drupal.org/node/29325
 if has("autocmd")
