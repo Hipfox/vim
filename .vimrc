@@ -44,9 +44,10 @@ Plugin 'mhinz/vim-signify'
 Plugin 'majutsushi/tagbar'
 "Plugin 'ervandew/supertab'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'easymotion/vim-easymotion'
 
 " Vim 7.2+
-"Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 " Colorscheme
 "Plugin 'chriskempson/base16-vim'
