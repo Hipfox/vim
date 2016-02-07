@@ -183,6 +183,7 @@ nnoremap <leader>x :%s/\s\+$//e<CR>
 " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufEnter * silent! lcd %:p:h
+nnoremap <leader>cd :lcd %:p:h<CR>
 
 " http://vimcasts.org/episodes/the-edit-command/
 cnoremap %% <C-R>=fnameescape(expand('%:p:h')).'/'<cr>
