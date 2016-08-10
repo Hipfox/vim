@@ -84,6 +84,8 @@ set hlsearch
 set ignorecase
 set smartcase
 set ruler
+set lazyredraw
+set cursorline
 
 set expandtab
 set tabstop=2
