@@ -27,7 +27,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Original repos on github
 Plugin 'othree/html5.vim'
 Plugin 'othree/html5-syntax.vim'
-Plugin 'othree/eregex.vim'
+"Plugin 'othree/eregex.vim'
 Plugin 'othree/vim-autocomplpop'
 Plugin 'jimyhuang/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -46,6 +46,7 @@ Plugin 'majutsushi/tagbar'
 "Plugin 'ervandew/supertab'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'easymotion/vim-easymotion'
+Bundle 'inside/vim-grep-operator'
 
 " Vim 7.2+
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -101,7 +102,7 @@ set pastetoggle=<F2>
 set noerrorbells
 set novisualbell
 set wildmenu
-set wildmode=list:longest,full
+set wildmode=longest,list,full
 set keywordprg=":help"
 set ttimeout
 set ttimeoutlen=50
@@ -140,6 +141,19 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " Ctrlp
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_switch_buffer = 'Et'
+let g:ctrlp_match_window = 'min:4,max:28'
+let g:ctrlp_regexp = 0
+" ctrlp - replace underscore match with directory separator(CRM specific)
+let g:ctrlp_abbrev = {
+ \ 'gmode': 'i',
+ \ 'abbrevs': [
+ \  {
+ \    'pattern': '_',
+ \    'expanded': '/',
+ \    'mode': 'prz',
+ \  }
+ \ ]
+\ }
 nnoremap <F3> :CtrlPBuffer<CR>
 nnoremap <F4> :CtrlP<CR>
 
@@ -187,6 +201,16 @@ nnoremap <leader>x :%s/\s\+$//e<CR>
 autocmd BufEnter * silent! lcd %:p:h
 nnoremap <leader>cd :lcd %:p:h<CR>
 
+" quick grep
+let g:grep_operator_set_search_register = 1
+set grepprg=git\ grep\ -n\ $*
+nmap <leader>g <Plug>GrepOperatorOnCurrentDirectory
+vmap <leader>g <Plug>GrepOperatorOnCurrentDirectory
+nmap <C-e> <Leader>giw
+vmap <C-v> <Leader>g
+nmap <leader>n :cn<CR>
+nmap <leader>p :cp<CR>
+
 " http://vimcasts.org/episodes/the-edit-command/
 cnoremap %% <C-R>=fnameescape(expand('%:p:h')).'/'<cr>
 map <leader>ew :e %%
@@ -210,6 +234,21 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-q> <C-w>q
+
+" EasyMotion config
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+"map  n <Plug>(easymotion-next)
+"map  N <Plug>(easymotion-prev)
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 
 " Others
 set shell=bash
