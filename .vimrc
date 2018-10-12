@@ -256,5 +256,8 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <silent> <Leader>> :exe "vertical resize +20"<CR>
 nnoremap <silent> <Leader>< :exe "vertical resize -20"<CR>
 
+" fugitive
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
 " Others
 set shell=bash
