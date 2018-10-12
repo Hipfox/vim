@@ -250,5 +250,11 @@ map <Leader>h <Plug>(easymotion-linebackward)
 
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 
+" Resize split windows
+nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <silent> <Leader>> :exe "vertical resize +20"<CR>
+nnoremap <silent> <Leader>< :exe "vertical resize -20"<CR>
+
 " Others
 set shell=bash
