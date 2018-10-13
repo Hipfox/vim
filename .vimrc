@@ -261,3 +261,4 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " Others
 set shell=bash
+autocmd Filetype gitcommit setlocal spell textwidth=72
