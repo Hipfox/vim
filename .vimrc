@@ -5,6 +5,7 @@ if has("win32") || has("win16")
 endif
 
 set nocompatible               " be iMproved
+set hidden
 filetype off                   " required!
 
 " Setting up Vundle - the vim plugin bundler
@@ -46,7 +47,8 @@ Plugin 'majutsushi/tagbar'
 "Plugin 'ervandew/supertab'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'easymotion/vim-easymotion'
-Bundle 'inside/vim-grep-operator'
+Plugin 'inside/vim-grep-operator'
+Plugin 'vim-ctrlspace/vim-ctrlspace'
 
 " Vim 7.2+
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -156,6 +158,7 @@ let g:ctrlp_abbrev = {
 \ }
 nnoremap <F3> :CtrlPBuffer<CR>
 nnoremap <F4> :CtrlP<CR>
+nnoremap <silent><C-p> :CtrlSpace O<CR>
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
@@ -164,12 +167,15 @@ nmap <F8> :TagbarToggle<CR>
 set laststatus=2
 let g:airline_detect_paste=1
 let g:airline#extensions#branch#enabled=1
-let g:airline#extensions#hunks#enabled=1
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#hunks#enabled=0
+let g:airline#extensions#tabline#enabled = 0
+"let g:CtrlSpaceUseTabline = 1
+set showtabline=0
 let g:airline_powerline_fonts=0
 let g:airline_theme='jellybeans'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
+let g:airline_exclude_preview = 1
 
 " Syntastic
 "set statusline+=%#warningmsg#
