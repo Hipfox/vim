@@ -30,7 +30,7 @@ Plugin 'othree/html5.vim'
 Plugin 'othree/html5-syntax.vim'
 "Plugin 'othree/eregex.vim'
 Plugin 'othree/vim-autocomplpop'
-Plugin 'jimyhuang/vim-addon-mw-utils'
+Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
@@ -268,3 +268,4 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " Others
 set shell=bash
 autocmd Filetype gitcommit setlocal spell textwidth=72
+nnoremap <Leader>b :ls<CR>:b<Space>
