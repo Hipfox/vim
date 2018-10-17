@@ -43,7 +43,6 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-surround'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'mhinz/vim-signify'
-Plugin 'majutsushi/tagbar'
 "Plugin 'ervandew/supertab'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'easymotion/vim-easymotion'
@@ -158,9 +157,6 @@ let g:ctrlp_abbrev = {
 nnoremap <F3> :CtrlPBuffer<CR>
 nnoremap <F4> :CtrlP<CR>
 nnoremap <silent><C-p> :CtrlSpace O<CR>
-
-" Tagbar
-nmap <F8> :TagbarToggle<CR>
 
 " Airline
 set laststatus=2
