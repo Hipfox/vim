@@ -28,7 +28,6 @@ Plugin 'VundleVim/Vundle.vim'
 " Original repos on github
 Plugin 'othree/html5.vim'
 Plugin 'othree/html5-syntax.vim'
-"Plugin 'othree/eregex.vim'
 Plugin 'othree/vim-autocomplpop'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -43,7 +42,6 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-surround'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'mhinz/vim-signify'
-"Plugin 'ervandew/supertab'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'vim-ctrlspace/vim-ctrlspace'
@@ -52,9 +50,7 @@ Plugin 'vim-ctrlspace/vim-ctrlspace'
 Plugin 'nathanaelkane/vim-indent-guides'
 
 " Colorscheme
-"Plugin 'chriskempson/base16-vim'
 Plugin 'nanotech/jellybeans.vim'
-"Plugin 'junegunn/seoul256.vim'
 
 " On https://github.com/vim-scripts/
 Plugin 'L9'
@@ -208,13 +204,6 @@ map <leader>ew :e %%
 map <leader>es :sp %%
 map <leader>ev :vsp %%
 map <leader>et :tabe %%
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Omni menu colors
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"hi Pmenu ctermbg=white
-"hi PmenuSel ctermbg=yellow ctermfg=black
-"hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
 
 " Multiple windows op
 nnoremap <leader>v <C-w>v<C-w>l
