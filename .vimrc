@@ -204,7 +204,7 @@ nnoremap <leader>x :%s/\s\+$//e<CR>
 " Set working directory to the current file
 " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd BufEnter * silent! lcd %:p:h
+"autocmd BufEnter * silent! lcd %:p:h
 nnoremap <leader>cd :lcd %:p:h<CR>
 
 " quick grep
