@@ -47,7 +47,6 @@ Plugin 'majutsushi/tagbar'
 "Plugin 'ervandew/supertab'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'inside/vim-grep-operator'
 Plugin 'vim-ctrlspace/vim-ctrlspace'
 
 " Vim 7.2+
@@ -207,16 +206,6 @@ nnoremap <leader>x :%s/\s\+$//e<CR>
 "autocmd BufEnter * silent! lcd %:p:h
 nnoremap <leader>cd :lcd %:p:h<CR>
 
-" quick grep
-let g:grep_operator_set_search_register = 1
-set grepprg=git\ grep\ -n\ $*
-nmap <leader>g <Plug>GrepOperatorOnCurrentDirectory
-vmap <leader>g <Plug>GrepOperatorOnCurrentDirectory
-nmap <C-e> <Leader>giw
-vmap <C-v> <Leader>g
-nmap <leader>n :cn<CR>
-nmap <leader>p :cp<CR>
-
 " http://vimcasts.org/episodes/the-edit-command/
 cnoremap %% <C-R>=fnameescape(expand('%:p:h')).'/'<cr>
 map <leader>ew :e %%
@@ -269,3 +258,5 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 set shell=bash
 autocmd Filetype gitcommit setlocal spell textwidth=72
 nnoremap <Leader>b :ls<CR>:b<Space>
+nmap <leader>n :cn<CR>
+nmap <leader>p :cp<CR>
