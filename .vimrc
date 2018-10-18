@@ -34,6 +34,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
@@ -152,7 +153,7 @@ let g:ctrlp_abbrev = {
 \ }
 nnoremap <F3> :CtrlPBuffer<CR>
 nnoremap <F4> :CtrlP<CR>
-nnoremap <silent><C-p> :CtrlSpace O<CR>
+nnoremap <F5> :CtrlPMRU<CR>
 
 " Airline
 set laststatus=2
@@ -238,6 +239,13 @@ nnoremap <silent> <Leader>< :exe "vertical resize -20"<CR>
 
 " fugitive
 autocmd BufReadPost fugitive://* set bufhidden=delete
+
+" tacahiroy/ctrlp-funky
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+" narrow the list down with a word under cursor
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+let g:ctrlp_funky_syntax_highlight = 1
+let g:ctrlp_funky_multi_buffers = 1
 
 " Others
 set shell=bash
