@@ -121,13 +121,6 @@ if has("autocmd")
   autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 endif
 
-" Tab key
-nnoremap <C-t> :tabnew<CR>
-nnoremap <leader>[ :tabprevious<CR>
-nnoremap <leader>] :tabnext<CR>
-nnoremap <leader>t :tabnext<CR>
-nnoremap <leader><tab> :tabnext<CR>
-
 " Omnifunc
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving insert mode
