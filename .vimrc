@@ -31,8 +31,8 @@ Plugin 'othree/html5-syntax.vim'
 Plugin 'othree/yajs.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/jspc.vim'
-Plugin 'othree/vim-autocomplpop'
 Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'othree/vim-autocomplpop'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
@@ -130,6 +130,8 @@ endif
 " made, these lines close it on movement in insert mode or when leaving insert mode
 "inoremap <leader><tab> <C-x><C-o>
 let g:acp_behaviorPhpOmniLength=1
+let g:acp_behaviorSnipmateLength = 1
+
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
