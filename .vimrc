@@ -29,6 +29,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'othree/html5.vim'
 Plugin 'othree/html5-syntax.vim'
 Plugin 'othree/vim-autocomplpop'
+Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
@@ -125,6 +126,7 @@ endif
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving insert mode
 "inoremap <leader><tab> <C-x><C-o>
+let g:acp_behaviorPhpOmniLength=1
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
