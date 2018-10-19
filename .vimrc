@@ -166,6 +166,9 @@ let g:airline_theme='jellybeans'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_exclude_preview = 1
+let g:airline#extensions#ctrlspace#enabled = 1
+let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
+let g:airline#extensions#ctrlp#show_adjacent_modes = 1
 
 " Syntastic
 "set statusline+=%#warningmsg#
