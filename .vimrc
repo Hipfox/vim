@@ -28,6 +28,8 @@ Plugin 'VundleVim/Vundle.vim'
 " Original repos on github
 Plugin 'othree/html5.vim'
 Plugin 'othree/html5-syntax.vim'
+Plugin 'othree/yajs.vim'
+Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/vim-autocomplpop'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
