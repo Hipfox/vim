@@ -156,6 +156,9 @@ map <F4> <C-P><C-\>w
 nnoremap <F5> :CtrlPMRU<CR>
 nnoremap <F8> :CtrlPBookmarkDir<CR>
 nnoremap <leader>d :CtrlPBookmarkDirAdd %:p:h<CR>
+" http://vim.wikia.com/wiki/Find_in_files_within_Vim
+map <F9> :execute " grep -srnw --binary-files=without-match --exclude-dir=.git . -e " . expand("<cword>") . " " <bar> cwindow<CR>
+map <F10> :execute " grep -srnw % -e " . expand("<cword>") . " " <bar> cwindow<CR>
 
 " Airline
 set laststatus=2
