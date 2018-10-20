@@ -49,7 +49,6 @@ Plugin 'digitaltoad/vim-jade'
 Plugin 'mhinz/vim-signify'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'vim-ctrlspace/vim-ctrlspace'
 
 " Vim 7.2+
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -164,15 +163,12 @@ let g:airline_detect_paste=1
 let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#hunks#enabled=0
 let g:airline#extensions#tabline#enabled = 0
-"let g:CtrlSpaceUseTabline = 1
 set showtabline=0
 let g:airline_powerline_fonts=0
 let g:airline_theme='jellybeans'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_exclude_preview = 1
-let g:airline#extensions#ctrlspace#enabled = 1
-let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
 let g:airline#extensions#ctrlp#show_adjacent_modes = 1
 
 " Syntastic
