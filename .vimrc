@@ -140,6 +140,7 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_switch_buffer = 'Et'
 let g:ctrlp_match_window = 'min:4,max:28'
 let g:ctrlp_regexp = 0
+let g:ctrlp_clear_cache_on_exit = 0
 " ctrlp - replace underscore match with directory separator(CRM specific)
 let g:ctrlp_abbrev = {
  \ 'gmode': 'i',
@@ -152,8 +153,10 @@ let g:ctrlp_abbrev = {
  \ ]
 \ }
 nnoremap <F3> :CtrlPBuffer<CR>
-nnoremap <F4> :CtrlP<CR>
+map <F4> <C-P><C-\>w
 nnoremap <F5> :CtrlPMRU<CR>
+nnoremap <F8> :CtrlPBookmarkDir<CR>
+nnoremap <leader>d :CtrlPBookmarkDirAdd %:p:h<CR>
 
 " Airline
 set laststatus=2
