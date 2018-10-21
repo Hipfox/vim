@@ -202,7 +202,7 @@ nnoremap <leader>x :%s/\s\+$//e<CR>
 " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "autocmd BufEnter * silent! lcd %:p:h
-nnoremap <leader>cd :lcd %:p:h<CR>
+nnoremap <leader>cd :lcd %:p:h<CR>:pwd<CR>
 
 " http://vimcasts.org/episodes/the-edit-command/
 cnoremap %% <C-R>=fnameescape(expand('%:p:h')).'/'<cr>
@@ -259,3 +259,4 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 nnoremap <Leader>b :ls<CR>:b<Space>
 nmap <leader>n :cn<CR>
 nmap <leader>p :cp<CR>
+let g:netrw_banner = 0
