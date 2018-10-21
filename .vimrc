@@ -49,6 +49,7 @@ Plugin 'digitaltoad/vim-jade'
 Plugin 'mhinz/vim-signify'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'ronakg/quickr-preview.vim'
 
 " Vim 7.2+
 Plugin 'nathanaelkane/vim-indent-guides'
