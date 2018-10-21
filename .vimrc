@@ -32,7 +32,8 @@ Plugin 'othree/yajs.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/jspc.vim'
 Plugin 'shawncplus/phpcomplete.vim'
-Plugin 'othree/vim-autocomplpop'
+"Plugin 'othree/vim-autocomplpop'
+Plugin 'ajh17/VimCompletesMe'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
@@ -104,6 +105,7 @@ set noerrorbells
 set novisualbell
 set wildmenu
 set wildmode=longest,list,full
+set completeopt=menu,preview
 set keywordprg=":help"
 set ttimeout
 set ttimeoutlen=50
