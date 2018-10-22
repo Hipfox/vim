@@ -43,7 +43,9 @@ Plug 'easymotion/vim-easymotion'
 Plug 'ronakg/quickr-preview.vim'
 
 " Vim 7.2+
-Plug 'nathanaelkane/vim-indent-guides'
+if v:version >= 702
+  Plug 'nathanaelkane/vim-indent-guides'
+endif
 
 " Colorscheme
 Plug 'nanotech/jellybeans.vim'
