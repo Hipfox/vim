@@ -1,78 +1,58 @@
-if has("win32") || has("win16")
-  language mes en_US
-  source $VIMRUNTIME/mswin.vim
-  set langmenu=en_US.UTF-8
-endif
-
 set nocompatible               " be iMproved
-set hidden
-filetype off                   " required!
 
-" Setting up Vundle - the vim plugin bundler
-let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
-if !filereadable(vundle_readme)
-  echo "Installing Vundle.."
-  echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
-  let iCanHazVundle=0
+" Setting Minimalist Vim Plugin Manager 
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " Original repos on github
-Plugin 'othree/html5.vim'
-Plugin 'othree/html5-syntax.vim'
-Plugin 'othree/yajs.vim'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'othree/jspc.vim'
-Plugin 'shawncplus/phpcomplete.vim'
-"Plugin 'othree/vim-autocomplpop'
-Plugin 'ajh17/VimCompletesMe'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tacahiroy/ctrlp-funky'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/syntastic'
-Plugin 'pangloss/vim-javascript'
-Plugin 'tpope/vim-surround'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'mhinz/vim-signify'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'ronakg/quickr-preview.vim'
+Plug 'junegunn/vim-plug'
+Plug 'othree/html5.vim'
+Plug 'othree/html5-syntax.vim'
+Plug 'othree/yajs.vim'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'othree/jspc.vim'
+Plug 'shawncplus/phpcomplete.vim'
+Plug 'othree/vim-autocomplpop'
+"Plug 'ajh17/VimCompletesMe'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/syntastic'
+Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-surround'
+Plug 'digitaltoad/vim-jade'
+Plug 'mhinz/vim-signify'
+Plug 'jiangmiao/auto-pairs'
+Plug 'easymotion/vim-easymotion'
+Plug 'ronakg/quickr-preview.vim'
 
 " Vim 7.2+
-Plugin 'nathanaelkane/vim-indent-guides'
+Plug 'nathanaelkane/vim-indent-guides'
 
 " Colorscheme
-Plugin 'nanotech/jellybeans.vim'
+Plug 'nanotech/jellybeans.vim'
 
 " On https://github.com/vim-scripts/
-Plugin 'L9'
-Plugin 'jsbeautify'
+Plug 'vim-scripts/L9'
+Plug 'vim-scripts/jsbeautify'
 
-call vundle#end()
-
-if iCanHazVundle == 0
-  echo "Installing Bundles, please ignore key map error messages"
-  echo ""
-  :PluginInstall!
-endif
+call plug#end()
 
 " Initialize for common setup
 syntax on
 filetype plugin on
+set hidden
 
 set t_Co=256
 set background=dark
@@ -127,15 +107,14 @@ if has("autocmd")
   autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 endif
 
-" Omnifunc
-" If you prefer the Omni-Completion tip window to close when a selection is
-" made, these lines close it on movement in insert mode or when leaving insert mode
-"inoremap <leader><tab> <C-x><C-o>
+"vim-autocomplpop
 let g:acp_behaviorPhpOmniLength=1
 let g:acp_behaviorSnipmateLength = 1
 
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+"imap <S-Tab> <Plug>snipMateNextOrTrigger
+
+"autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Ctrlp
 let g:ctrlp_working_path_mode = 'ra'
