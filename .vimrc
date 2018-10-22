@@ -16,6 +16,7 @@ Plug 'othree/html5-syntax.vim'
 Plug 'othree/yajs.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'othree/jspc.vim'
+Plug 'othree/csscomplete.vim'
 Plug 'shawncplus/phpcomplete.vim'
 Plug 'othree/vim-autocomplpop'
 "Plug 'ajh17/VimCompletesMe'
@@ -101,20 +102,26 @@ if has("autocmd")
     autocmd BufRead,BufNewFile *.test set filetype=php
   augroup END
 
-  autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-  autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+  augroup EditVim
+    autocmd!
+    autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+    autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+    " fugitive
+    autocmd BufReadPost fugitive://* set bufhidden=delete
+    autocmd Filetype gitcommit setlocal spell textwidth=72
+    " If you prefer the Omni-Completion tip window to close when a selection is
+    " made, these lines close it on movement in insert mode or when leaving
+    " insert mode
+    autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+  augroup END
 endif
 
 "vim-autocomplpop
 let g:acp_behaviorPhpOmniLength=1
 let g:acp_behaviorSnipmateLength = 1
-
-"imap <S-Tab> <Plug>snipMateNextOrTrigger
-
-"autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Ctrlp
 let g:ctrlp_working_path_mode = 'ra'
@@ -224,9 +231,6 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <silent> <Leader>> :exe "vertical resize +20"<CR>
 nnoremap <silent> <Leader>< :exe "vertical resize -20"<CR>
 
-" fugitive
-autocmd BufReadPost fugitive://* set bufhidden=delete
-
 " tacahiroy/ctrlp-funky
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 " narrow the list down with a word under cursor
@@ -237,7 +241,6 @@ let g:ctrlp_funky_multi_buffers = 1
 
 " Others
 set shell=bash
-autocmd Filetype gitcommit setlocal spell textwidth=72
 nnoremap <Leader>b :ls<CR>:b<Space>
 nmap <leader>n :cn<CR>
 nmap <leader>p :cp<CR>
