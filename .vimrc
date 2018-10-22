@@ -21,7 +21,11 @@ Plug 'shawncplus/phpcomplete.vim'
 Plug 'othree/vim-autocomplpop'
 "Plug 'ajh17/VimCompletesMe'
 Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
+if v:version < 800
+  Plug 'tomtom/tlib_vim', { 'tag': '1.22' }
+else
+  Plug 'tomtom/tlib_vim'
+endif
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'ctrlpvim/ctrlp.vim'
