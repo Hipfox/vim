@@ -33,11 +33,11 @@ Plug 'tacahiroy/ctrlp-funky'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/syntastic'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-surround'
 Plug 'digitaltoad/vim-jade'
-Plug 'mhinz/vim-signify'
 Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
 Plug 'ronakg/quickr-preview.vim'
@@ -154,6 +154,14 @@ nnoremap <leader>d :CtrlPBookmarkDirAdd %:p:h<CR>
 " http://vim.wikia.com/wiki/Find_in_files_within_Vim
 map <F9> :execute " grep -srnw --binary-files=without-match --exclude-dir=.git . -e " . expand("<cword>") . " " <bar> cwindow<CR>
 map <F10> :execute " grep -srnw % -e " . expand("<cword>") . " " <bar> cwindow<CR>
+
+" gitgutter
+nnoremap <F12> :GitGutterToggle<CR>
+nmap <Leader>; <Plug>GitGutterPrevHunk
+nmap <Leader>' <Plug>GitGutterNextHunk
+let g:gitgutter_enabled = 0
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
 
 " Airline
 set laststatus=2
