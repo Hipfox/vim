@@ -30,8 +30,7 @@ Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/syntastic'
@@ -163,19 +162,20 @@ let g:gitgutter_enabled = 0
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
 
-" Airline
+" lightline
 set laststatus=2
-let g:airline_detect_paste=1
-let g:airline#extensions#branch#enabled=1
-let g:airline#extensions#hunks#enabled=0
-let g:airline#extensions#tabline#enabled = 0
 set showtabline=0
-let g:airline_powerline_fonts=0
-let g:airline_theme='jellybeans'
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_exclude_preview = 1
-let g:airline#extensions#ctrlp#show_adjacent_modes = 1
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'jellybeans',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
 
 " Syntastic
 "set statusline+=%#warningmsg#
