@@ -16,7 +16,9 @@ Plug 'othree/html5-syntax.vim'
 Plug 'othree/yajs.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'othree/jspc.vim'
-Plug 'othree/csscomplete.vim'
+if v:version > 709
+  Plug 'othree/csscomplete.vim'
+endif
 Plug 'shawncplus/phpcomplete.vim'
 Plug 'othree/vim-autocomplpop'
 "Plug 'ajh17/VimCompletesMe'
@@ -110,10 +112,10 @@ if has("autocmd")
 
   augroup EditVim
     autocmd!
-    autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-    autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS noci
+    autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
     " fugitive
     autocmd BufReadPost fugitive://* set bufhidden=delete
     autocmd Filetype gitcommit setlocal spell textwidth=72
