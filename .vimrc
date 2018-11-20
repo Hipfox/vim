@@ -93,8 +93,10 @@ set pastetoggle=<F2>
 set noerrorbells
 set novisualbell
 set wildmenu
-set wildmode=longest,list,full
-set completeopt=menu,preview
+set wildmode=list:longest,full
+set completeopt=longest,menu
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 set keywordprg=":help"
 set ttimeout
 set ttimeoutlen=50
@@ -181,10 +183,6 @@ let g:lightline = {
       \ }
 
 " Syntastic
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
