@@ -78,6 +78,7 @@ set smartcase
 set ruler
 set lazyredraw
 set cursorline
+set redrawtime=10000
 
 set expandtab
 set tabstop=2
