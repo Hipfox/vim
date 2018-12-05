@@ -139,6 +139,7 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_switch_buffer = 'Et'
 let g:ctrlp_match_window = 'min:4,max:28'
 let g:ctrlp_regexp = 0
+let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_clear_cache_on_exit = 0
 " ctrlp - replace underscore match with directory separator(CRM specific)
 let g:ctrlp_abbrev = {
