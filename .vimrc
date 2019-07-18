@@ -135,7 +135,7 @@ let g:acp_behaviorPhpOmniLength=1
 let g:acp_behaviorSnipmateLength = 1
 
 " Ctrlp
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_switch_buffer = 'Et'
 let g:ctrlp_match_window = 'min:4,max:28'
 let g:ctrlp_regexp = 0
@@ -152,14 +152,21 @@ let g:ctrlp_abbrev = {
  \  }
  \ ]
 \ }
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|files)$',
+  \ 'file': '\v\.(exe|so|dll|bin|so|swp|zip|gz)$',
+  \ }
 nnoremap <F3> :CtrlPBuffer<CR>
 map <F4> <C-P><C-\>w
 nnoremap <F5> :CtrlPMRU<CR>
 nnoremap <F8> :CtrlPBookmarkDir<CR>
 nnoremap <leader>d :CtrlPBookmarkDirAdd %:p:h<CR>
+nnoremap <leader>e :CtrlP %:p:h<CR>
+
 " http://vim.wikia.com/wiki/Find_in_files_within_Vim
-map <F9> :execute " grep -srnw --binary-files=without-match --exclude-dir=.git . -e " . expand("<cword>") . " " <bar> cwindow<CR>
+map <F9> :execute " grep -srnw --binary-files=without-match --exclude-dir=tmp --exclude-dir=files --exclude-dir=.git . -e " . expand("<cword>") . " " <bar> cwindow<CR>
 map <F10> :execute " grep -srnw % -e " . expand("<cword>") . " " <bar> cwindow<CR>
+map <F11> :execute " grep -sRnw --binary-files=without-match --exclude-dir=tmp --exclude-dir=files --exclude-dir=.git . -e " . expand("<cword>") . " " <bar> cwindow<CR>
 
 " gitgutter
 nnoremap <F12> :GitGutterToggle<CR>
