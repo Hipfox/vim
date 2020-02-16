@@ -34,8 +34,11 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'gregsexton/gitv', {'on': ['Gitv']}
+Plug 'christoomey/vim-conflicted'
+Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/syntastic'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-surround'
@@ -50,7 +53,8 @@ if v:version >= 702
 endif
 
 " Colorscheme
-Plug 'nanotech/jellybeans.vim'
+"Plug 'nanotech/jellybeans.vim'
+Plug 'junegunn/seoul256.vim'
 
 " On https://github.com/vim-scripts/
 Plug 'vim-scripts/L9'
@@ -65,7 +69,9 @@ set hidden
 
 set t_Co=256
 set background=dark
-colorscheme jellybeans
+"colorscheme jellybeans
+let g:seoul256_background = 233
+colorscheme seoul256
 
 let mapleader = ','
 let g:mapleader = ","
@@ -164,14 +170,15 @@ nnoremap <leader>d :CtrlPBookmarkDirAdd %:p:h<CR>
 nnoremap <leader>e :CtrlP %:p:h<CR>
 
 " http://vim.wikia.com/wiki/Find_in_files_within_Vim
+map <F7> :execute " Rg " . expand("<cword>")<CR>
 map <F9> :execute " grep -srnw --binary-files=without-match --exclude-dir=tmp --exclude-dir=files --exclude-dir=.git . -e " . expand("<cword>") . " " <bar> cwindow<CR>
 map <F10> :execute " grep -srnw % -e " . expand("<cword>") . " " <bar> cwindow<CR>
 map <F11> :execute " grep -sRnw --binary-files=without-match --exclude-dir=tmp --exclude-dir=files --exclude-dir=.git . -e " . expand("<cword>") . " " <bar> cwindow<CR>
 
 " gitgutter
 nnoremap <F12> :GitGutterToggle<CR>
-nmap <Leader>; <Plug>GitGutterPrevHunk
-nmap <Leader>' <Plug>GitGutterNextHunk
+nmap <Leader>; <Plug>(GitGutterPrevHunk)
+nmap <Leader>' <Plug>(GitGutterNextHunk)
 let g:gitgutter_enabled = 0
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
@@ -270,3 +277,5 @@ nnoremap <Leader>b :ls<CR>:b<Space>
 nmap <leader>n :cn<CR>
 nmap <leader>p :cp<CR>
 let g:netrw_banner = 0
+
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --follow --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, <bang>0)
