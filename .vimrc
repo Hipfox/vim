@@ -30,8 +30,6 @@ else
 endif
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tacahiroy/ctrlp-funky'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'christoomey/vim-conflicted'
@@ -140,37 +138,8 @@ endif
 let g:acp_behaviorPhpOmniLength=1
 let g:acp_behaviorSnipmateLength = 1
 
-" Ctrlp
-let g:ctrlp_working_path_mode = 'rw'
-let g:ctrlp_switch_buffer = 'Et'
-let g:ctrlp_match_window = 'min:4,max:28'
-let g:ctrlp_regexp = 0
-let g:ctrlp_follow_symlinks = 1
-let g:ctrlp_clear_cache_on_exit = 0
-" ctrlp - replace underscore match with directory separator(CRM specific)
-let g:ctrlp_abbrev = {
- \ 'gmode': 'i',
- \ 'abbrevs': [
- \  {
- \    'pattern': '_',
- \    'expanded': '/',
- \    'mode': 'prz',
- \  }
- \ ]
-\ }
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|files)$',
-  \ 'file': '\v\.(exe|so|dll|bin|so|swp|zip|gz)$',
-  \ }
-nnoremap <F3> :CtrlPBuffer<CR>
-map <F4> <C-P><C-\>w
-nnoremap <F5> :CtrlPMRU<CR>
-nnoremap <F8> :CtrlPBookmarkDir<CR>
-nnoremap <leader>d :CtrlPBookmarkDirAdd %:p:h<CR>
-nnoremap <leader>e :CtrlP %:p:h<CR>
-
 " http://vim.wikia.com/wiki/Find_in_files_within_Vim
-map <F7> :execute " Rg " . expand("<cword>")<CR>
+map <F3> :execute " Rg " . expand("<cword>")<CR>
 map <F9> :execute " grep -srnw --binary-files=without-match --exclude-dir=tmp --exclude-dir=files --exclude-dir=.git . -e " . expand("<cword>") . " " <bar> cwindow<CR>
 map <F10> :execute " grep -srnw % -e " . expand("<cword>") . " " <bar> cwindow<CR>
 map <F11> :execute " grep -sRnw --binary-files=without-match --exclude-dir=tmp --exclude-dir=files --exclude-dir=.git . -e " . expand("<cword>") . " " <bar> cwindow<CR>
@@ -262,14 +231,6 @@ nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <silent> <Leader>> :exe "vertical resize +20"<CR>
 nnoremap <silent> <Leader>< :exe "vertical resize -20"<CR>
-
-" tacahiroy/ctrlp-funky
-nnoremap <Leader>fu :CtrlPFunky<Cr>
-" narrow the list down with a word under cursor
-nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
-let g:ctrlp_funky_matchtype = 'path'
-let g:ctrlp_funky_syntax_highlight = 1
-let g:ctrlp_funky_multi_buffers = 1
 
 " Others
 set shell=bash
