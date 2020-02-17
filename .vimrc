@@ -32,13 +32,14 @@ Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-conflicted'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/syntastic'
 Plug 'pangloss/vim-javascript'
-Plug 'tpope/vim-surround'
 Plug 'digitaltoad/vim-jade'
 Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
@@ -191,6 +192,7 @@ nnoremap <leader>x :%s/\s\+$//e<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "autocmd BufEnter * silent! lcd %:p:h
 nnoremap <leader>cd :lcd %:p:h<CR>:pwd<CR>
+nnoremap <leader>g :cd $PWD<CR>:pwd<CR>
 
 " http://vimcasts.org/episodes/the-edit-command/
 cnoremap %% <C-R>=fnameescape(expand('%:p:h')).'/'<cr>
@@ -238,4 +240,14 @@ nmap <leader>n :cn<CR>
 nmap <leader>p :cp<CR>
 let g:netrw_banner = 0
 
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --follow --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, <bang>0)
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --follow --column --line-number --no-heading --color=always --smart-case -g '!log/*' ".shellescape(<q-args>), 1, <bang>0)
+
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --follow --column --line-number --no-heading --color=always --smart-case %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
