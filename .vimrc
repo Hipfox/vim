@@ -168,13 +168,17 @@ let g:lightline = {
       \ }
 
 " Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
 
 let g:syntastic_php_checkers=['php']
-let g:syntastic_php_phpcs_args='--report=csv --standard=Drupal --extensions=php,module,inc,install,test,profile,theme'
+let g:syntastic_php_phpcs_args=' --standard=Drupal --extensions=php,module,inc,install,test,profile,theme'
 let g:syntastic_auto_jump=1
 nnoremap <leader>ck :SyntasticCheck<CR>
 nnoremap <leader>er :Errors<CR>
