@@ -74,6 +74,7 @@ colorscheme seoul256
 let mapleader = ','
 let g:mapleader = ","
 
+set ttyfast
 set backspace=indent,eol,start
 set incsearch
 set hlsearch
