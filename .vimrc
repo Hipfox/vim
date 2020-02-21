@@ -1,6 +1,6 @@
 set nocompatible               " be iMproved
 
-" Setting Minimalist Vim Plugin Manager 
+" Setting Minimalist Vim Plugin Manager
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -89,6 +89,8 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set autoindent
+set splitbelow
+set splitright
 
 set fileencodings=utf-8,big5,default
 set encoding=utf8
@@ -244,6 +246,8 @@ nnoremap <Leader>b :ls<CR>:b<Space>
 nmap <leader>n :cn<CR>
 nmap <leader>p :cp<CR>
 let g:netrw_banner = 0
+"Hitting F5 will clean out all that trailing whitespace or tabs.
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
 
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --follow --column --line-number --no-heading --color=always --smart-case -g '!log/*' ".shellescape(<q-args>), 1, <bang>0)
 
