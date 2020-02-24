@@ -38,7 +38,7 @@ Plug 'christoomey/vim-conflicted'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/syntastic'
+Plug 'vim-syntastic/syntastic'
 Plug 'pangloss/vim-javascript'
 Plug 'digitaltoad/vim-jade'
 Plug 'jiangmiao/auto-pairs'
