@@ -43,7 +43,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'digitaltoad/vim-jade'
 Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
-Plug 'ronakg/quickr-preview.vim'
+"Plug 'ronakg/quickr-preview.vim'
 
 " Vim 7.2+
 if v:version >= 702
