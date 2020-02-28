@@ -102,7 +102,7 @@ set noerrorbells
 set novisualbell
 set wildmenu
 set wildmode=list:longest,full
-set completeopt=longest,menu
+set completeopt=longest,menuone
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 set keywordprg=":help"
@@ -233,6 +233,7 @@ map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+let g:EasyMotion_smartcase = 1
 
 " Resize split windows
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
