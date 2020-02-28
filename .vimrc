@@ -219,9 +219,12 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-q> <C-w>q
 
 " EasyMotion config
-"map  / <Plug>(easymotion-sn)
-map <Leader>t <Plug>(easymotion-sn)
-"omap / <Plug>(easymotion-tn)
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+let g:EasyMotion_smartcase = 1
+nmap s <Plug>(easymotion-overwin-f2)
+map  // <Plug>(easymotion-sn)
+omap // <Plug>(easymotion-tn)
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide
 " different highlight method and have some other features )
@@ -231,9 +234,6 @@ map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
-
-let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
-let g:EasyMotion_smartcase = 1
 
 " Resize split windows
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
