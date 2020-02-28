@@ -242,14 +242,25 @@ nnoremap <silent> <Leader>< :exe "vertical resize -20"<CR>
 
 " Others
 set shell=bash
-nnoremap <Leader>b :ls<CR>:b<Space>
+"nnoremap <Leader>b :ls<CR>:b<Space>
 nmap <leader>n :cn<CR>
 nmap <leader>p :cp<CR>
 let g:netrw_banner = 0
 "Hitting F5 will clean out all that trailing whitespace or tabs.
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
 
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --follow --column --line-number --no-heading --color=always --smart-case -g '!log/*' ".shellescape(<q-args>), 1, <bang>0)
+" Fzf, Ripgrep
+nnoremap <leader>fl :Lines
+nnoremap <leader>fb :BLines
+nnoremap <leader>fz :Files
+nnoremap <leader>fg :GFiles
+nnoremap <leader>f? :GFiles?
+nnoremap <leader>fr :Rg
+nnoremap <leader>fc :Commits
+nnoremap <leader>fh :History
+nnoremap <leader>b  :Buffers
+
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --follow --column --line-number --no-heading --color=always --smart-case -g '!log/*' -g '!files/*' ".shellescape(<q-args>), 1, <bang>0)
 
 function! RipgrepFzf(query, fullscreen)
   let command_fmt = 'rg --follow --column --line-number --no-heading --color=always --smart-case %s || true'
