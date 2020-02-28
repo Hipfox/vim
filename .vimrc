@@ -257,8 +257,8 @@ nnoremap <leader>fg :GFiles
 nnoremap <leader>f? :GFiles?
 nnoremap <leader>fr :Rg
 nnoremap <leader>fc :Commits
-nnoremap <leader>fh :History
-nnoremap <leader>b  :Buffers
+nnoremap <leader>fh :History<CR>
+nnoremap <leader>b  :Buffers<CR>
 
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --follow --column --line-number --no-heading --color=always --smart-case -g '!log/*' -g '!files/*' ".shellescape(<q-args>), 1, <bang>0)
 
