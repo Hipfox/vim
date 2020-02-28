@@ -219,7 +219,7 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-q> <C-w>q
 
 " EasyMotion config
-"let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_do_mapping = 1
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 let g:EasyMotion_smartcase = 1
 nmap s <Plug>(easymotion-s)
