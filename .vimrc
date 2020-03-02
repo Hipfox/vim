@@ -19,6 +19,7 @@ Plug 'othree/jspc.vim'
 if v:version > 709
   Plug 'othree/csscomplete.vim'
 endif
+Plug 'hail2u/vim-css3-syntax'
 Plug 'shawncplus/phpcomplete.vim'
 Plug 'othree/vim-autocomplpop'
 "Plug 'ajh17/VimCompletesMe'
@@ -43,7 +44,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'digitaltoad/vim-jade'
 Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
-"Plug 'ronakg/quickr-preview.vim'
+Plug 'junegunn/vim-easy-align'
 
 " Vim 7.2+
 if v:version >= 702
@@ -134,6 +135,11 @@ if has("autocmd")
     " insert mode
     autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
     autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+  augroup END
+
+  augroup VimCSS3Syntax
+    autocmd!
+    autocmd FileType css setlocal iskeyword+=-
   augroup END
 endif
 
@@ -229,6 +235,11 @@ nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <silent> <Leader>> :exe "vertical resize +20"<CR>
 nnoremap <silent> <Leader>< :exe "vertical resize -20"<CR>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " Others
 set shell=bash
