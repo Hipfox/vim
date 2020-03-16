@@ -253,7 +253,7 @@ nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:
 " Fzf, Ripgrep
 nnoremap <leader>fl :Lines
 nnoremap <leader>fb :BLines
-nnoremap <leader>fz :Files
+nnoremap <leader>fz :Files<CR>
 nnoremap <leader>fg :GFiles
 nnoremap <leader>f? :GFiles?
 nnoremap <leader>fr :Rg
