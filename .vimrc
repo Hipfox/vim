@@ -261,7 +261,7 @@ nnoremap <leader>fc :Commits
 nnoremap <leader>fh :History<CR>
 nnoremap <leader>b  :Buffers<CR>
 
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --follow --column --line-number --no-heading --color=always --smart-case -g '!log/*' -g '!files/*' ".shellescape(<q-args>), 1, <bang>0)
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --follow --column --line-number --no-heading --color=always --smart-case -g '!log' -g '!files' ".shellescape(<q-args>), 1, <bang>0)
 
 function! RipgrepFzf(query, fullscreen)
   let command_fmt = 'rg --follow --column --line-number --no-heading --color=always --smart-case %s || true'
