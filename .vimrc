@@ -251,6 +251,9 @@ let g:netrw_banner = 0
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
 
 " Fzf, Ripgrep
+"let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.6  }  }
+let g:fzf_layout = { 'down': '60%'  }
+let g:fzf_preview_window = []
 nnoremap <leader>fl :Lines
 nnoremap <leader>fb :BLines
 nnoremap <leader>fz :Files<CR>
@@ -261,10 +264,10 @@ nnoremap <leader>fc :Commits
 nnoremap <leader>fh :History<CR>
 nnoremap <leader>b  :Buffers<CR>
 
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --follow --column --line-number --no-heading --color=always --smart-case -g '!log' -g '!files' ".shellescape(<q-args>), 1, <bang>0)
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --follow --column --line-number --no-heading --color=always --smart-case -g '!log' -g '!files' -g '!*.sql' -- ".shellescape(<q-args>), 1, {}, <bang>0)
 
 function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --follow --column --line-number --no-heading --color=always --smart-case %s || true'
+  let command_fmt = "rg --follow --column --line-number --no-heading --color=always --smart-case -g '!log' -g '!files' -- %s || true"
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
   let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
