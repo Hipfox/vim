@@ -155,8 +155,8 @@ map <F11> :execute " grep -sRnw --binary-files=without-match --exclude-dir=tmp -
 
 " gitgutter
 nnoremap <F12> :GitGutterToggle<CR>
-nmap <Leader>; <Plug>(GitGutterPrevHunk)
-nmap <Leader>' <Plug>(GitGutterNextHunk)
+nmap <Leader>k <Plug>(GitGutterPrevHunk)
+nmap <Leader>j <Plug>(GitGutterNextHunk)
 let g:gitgutter_enabled = 0
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
