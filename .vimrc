@@ -43,7 +43,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'pangloss/vim-javascript'
 Plug 'digitaltoad/vim-jade'
 Plug 'jiangmiao/auto-pairs'
-Plug 'easymotion/vim-easymotion'
+Plug 'justinmk/vim-sneak'
 Plug 'junegunn/vim-easy-align'
 
 " Vim 7.2+
@@ -224,11 +224,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-q> <C-w>q
 
-" EasyMotion config
-let g:EasyMotion_do_mapping = 1
-let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
-let g:EasyMotion_smartcase = 1
-nmap s <Plug>(easymotion-s)
+" Sneak config
+let g:sneak#label = 1
 
 " Resize split windows
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
