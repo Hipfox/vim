@@ -46,6 +46,14 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'justinmk/vim-sneak'
 Plug 'junegunn/vim-easy-align'
 
+Plug 'machakann/vim-highlightedyank'
+
+if v:version < 800
+  if !exists('##TextYankPost')
+		map y <Plug>(highlightedyank)
+	endif
+endif
+
 " Vim 7.2+
 if v:version >= 702
   Plug 'nathanaelkane/vim-indent-guides'
