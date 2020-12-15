@@ -21,8 +21,19 @@ if v:version > 709
 endif
 Plug 'hail2u/vim-css3-syntax'
 Plug 'shawncplus/phpcomplete.vim'
-Plug 'othree/vim-autocomplpop'
+"Plug 'othree/vim-autocomplpop'
 "Plug 'ajh17/VimCompletesMe'
+"Plug 'neoclide/coc.nvim'
+" AUTOCOMPLETE:
+" The good stuff is documented in |ins-completion|
+" HIGHLIGHTS:
+" - ^x^o for filetype
+" - ^x^n for JUST this file
+" - ^x^f for filenames (works with our path trick!)
+" - ^x^] for tags only
+" - ^n for anything specified by the 'complete' option
+" NOW WE CAN:
+" - Use ^n and ^p to go back and forth in the suggestion list
 Plug 'MarcWeber/vim-addon-mw-utils'
 if v:version < 800
   Plug 'tomtom/tlib_vim', { 'tag': '1.22' }
@@ -33,7 +44,6 @@ Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
-"Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-conflicted'
 Plug 'airblade/vim-gitgutter'
@@ -80,8 +90,7 @@ set background=dark
 let g:seoul256_background = 233
 colorscheme seoul256
 
-let mapleader = ','
-let g:mapleader = ","
+let mapleader = ' '
 
 set ttyfast
 set backspace=indent,eol,start
@@ -215,6 +224,10 @@ nnoremap <leader>x :%s/\s\+$//e<CR>
 nnoremap <leader>cd :lcd %:p:h<CR>:pwd<CR>
 nnoremap <leader>g :cd $PWD<CR>:pwd<CR>
 
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+
 " http://vimcasts.org/episodes/the-edit-command/
 cnoremap %% <C-R>=fnameescape(expand('%:p:h')).'/'<cr>
 map <leader>ew :e %%
@@ -260,12 +273,12 @@ nnoremap / ms/
 "let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.6  }  }
 let g:fzf_layout = { 'down': '60%'  }
 let g:fzf_preview_window = []
-nnoremap <leader>fl :Lines
-nnoremap <leader>fb :BLines
+nnoremap <leader>fl :Lines<Space>
+nnoremap <leader>fb :BLines<Space>
 nnoremap <leader>fz :Files<CR>
 nnoremap <leader>fg :GFiles
 nnoremap <leader>f? :GFiles?
-nnoremap <leader>fr :Rg
+nnoremap <leader>fr :Rg<Space>
 nnoremap <leader>fc :Commits
 nnoremap <leader>fh :History<CR>
 nnoremap <leader>b  :Buffers<CR>
