@@ -11,19 +11,12 @@ call plug#begin('~/.vim/plugged')
 
 " Original repos on github
 Plug 'junegunn/vim-plug'
-Plug 'othree/html5.vim'
 Plug 'othree/html5-syntax.vim'
 Plug 'othree/yajs.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'othree/jspc.vim'
-if v:version > 709
-  Plug 'othree/csscomplete.vim'
-endif
+Plug 'pangloss/vim-javascript'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'shawncplus/phpcomplete.vim'
-"Plug 'othree/vim-autocomplpop'
-"Plug 'ajh17/VimCompletesMe'
-"Plug 'neoclide/coc.nvim'
 " AUTOCOMPLETE:
 " The good stuff is documented in |ins-completion|
 " HIGHLIGHTS:
@@ -50,7 +43,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-syntastic/syntastic'
-Plug 'pangloss/vim-javascript'
 Plug 'digitaltoad/vim-jade'
 Plug 'jiangmiao/auto-pairs'
 Plug 'justinmk/vim-sneak'
@@ -91,6 +83,7 @@ let g:seoul256_background = 233
 colorscheme seoul256
 
 let mapleader = ' '
+let g:javascript_plugin_jsdoc = 1
 
 set ttyfast
 set backspace=indent,eol,start
@@ -121,6 +114,7 @@ set novisualbell
 set wildmenu
 set wildmode=list:longest,full
 set completeopt=longest,menuone
+set omnifunc=syntaxcomplete#Complete
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 set keywordprg=":help"
@@ -142,7 +136,8 @@ if has("autocmd")
     autocmd!
     autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
     autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS noci
+    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
     " fugitive
     autocmd BufReadPost fugitive://* set bufhidden=delete
@@ -159,10 +154,6 @@ if has("autocmd")
     autocmd FileType css setlocal iskeyword+=-
   augroup END
 endif
-
-"vim-autocomplpop
-let g:acp_behaviorPhpOmniLength=1
-let g:acp_behaviorSnipmateLength = 1
 
 " http://vim.wikia.com/wiki/Find_in_files_within_Vim
 map <F3> :execute " Rg " . expand("<cword>")<CR>
