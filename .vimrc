@@ -11,12 +11,7 @@ call plug#begin('~/.vim/plugged')
 
 " Original repos on github
 Plug 'junegunn/vim-plug'
-Plug 'othree/html5-syntax.vim'
-Plug 'othree/yajs.vim'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'othree/jspc.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'hail2u/vim-css3-syntax'
+Plug 'sheerun/vim-polyglot'
 " AUTOCOMPLETE:
 " The good stuff is documented in |ins-completion|
 " HIGHLIGHTS:
@@ -43,11 +38,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-syntastic/syntastic'
-Plug 'digitaltoad/vim-jade'
 Plug 'jiangmiao/auto-pairs'
 Plug 'justinmk/vim-sneak'
 Plug 'junegunn/vim-easy-align'
-
 Plug 'machakann/vim-highlightedyank'
 
 if v:version < 800
@@ -66,7 +59,6 @@ endif
 Plug 'junegunn/seoul256.vim'
 
 " On https://github.com/vim-scripts/
-Plug 'vim-scripts/L9'
 Plug 'vim-scripts/jsbeautify'
 
 call plug#end()
@@ -147,11 +139,6 @@ if has("autocmd")
     " insert mode
     autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
     autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-  augroup END
-
-  augroup VimCSS3Syntax
-    autocmd!
-    autocmd FileType css setlocal iskeyword+=-
   augroup END
 endif
 
