@@ -246,6 +246,9 @@ let g:netrw_banner = 0
 "Hitting F5 will clean out all that trailing whitespace or tabs.
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
 nnoremap / ms/
+let g:snipMate = {
+      \ 'snippet_version': '0'
+      \ }
 
 " Fzf, Ripgrep
 "let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.6  }  }
