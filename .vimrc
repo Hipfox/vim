@@ -73,6 +73,9 @@ set background=dark
 "colorscheme jellybeans
 let g:seoul256_background = 233
 colorscheme seoul256
+" Settings control text background color after setting the colorscheme to
+" remove the text background color
+highlight Normal ctermbg=NONE
 
 let mapleader = ' '
 let g:javascript_plugin_jsdoc = 1
