@@ -54,6 +54,11 @@ if v:version >= 702
   Plug 'nathanaelkane/vim-indent-guides'
 endif
 
+" Vim 8.2+
+if v:version >= 802
+  Plug 'pechorin/any-jump.vim'
+endif
+
 " Colorscheme
 "Plug 'nanotech/jellybeans.vim'
 Plug 'junegunn/seoul256.vim'
@@ -76,6 +81,7 @@ colorscheme seoul256
 " Settings control text background color after setting the colorscheme to
 " remove the text background color
 highlight Normal ctermbg=NONE
+highlight Pmenu guibg=black ctermbg=17
 
 let mapleader = ' '
 let g:javascript_plugin_jsdoc = 1
@@ -265,6 +271,7 @@ nnoremap <leader>f? :GFiles?
 nnoremap <leader>fr :Rg<Space>
 nnoremap <leader>fc :Commits
 nnoremap <leader>fh :History<CR>
+nnoremap <leader>fj :Jumps<CR>
 nnoremap <leader>b  :Buffers<CR>
 
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --follow --column --line-number --no-heading --color=always --smart-case -g '!log' -g '!files' -g '!*.sql' -- ".shellescape(<q-args>), 1, {}, <bang>0)
@@ -278,3 +285,18 @@ function! RipgrepFzf(query, fullscreen)
 endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+
+" https://github.com/junegunn/fzf.vim/issues/865
+function! GetJumps()
+  redir => cout
+  silent jumps
+  redir END
+  return reverse(split(cout, "\n")[1:])
+endfunction
+function! GoToJump(jump)
+    let jumpnumber = split(a:jump, '\s\+')[0]
+    execute "normal " . jumpnumber . "\<c-o>"
+endfunction
+command! Jumps call fzf#run(fzf#wrap({
+        \ 'source': GetJumps(),
+        \ 'sink': function('GoToJump')}))
